@@ -1,0 +1,8 @@
+# Prompt user to input computer name
+$computername = Read-Host "Enter the computer name"
+
+# Prompt user to input target OU path
+$ouPath = Read-Host "Enter the target OU path (e.g., 'OU=Computers,DC=domain,DC=com')"
+
+# Move the specified computer to the target OU
+Get-ADComputer -Identity $computername | Move-ADObject -TargetPath $ouPath
